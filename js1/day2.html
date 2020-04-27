@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <style>
+        h1 {
+            color: red;
+            text-align: center;
+        }
+ 
+        body {
+            background-color: #E0E0E0;
+            font-weight: bold;
+        }
+ 
+        input {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <input type=button value="volume" OnClick="daysLeft()">
+    <script>
+        function diffDays(date1, date2) {
+            var year1 = date1.getFullYear(),
+                year2 = date2.getFullYear(),
+                month1 = date1.getMonth(),
+                month2 = date2.getMonth(),
+                day1 = date1.getDate(),
+                day2 = date2.getDate();
+            let d1 = new Date(year1, month1, day1),
+                d2 = new Date(year2, month2, day2),
+                // Смещение для уже полностью очищенных двух локальных дат
+                offset1 = d1.getTimezoneOffset(),
+                offset2 = d2.getTimezoneOffset(),
+                diff = (offset1 - offset2) * 60000,
+                days = (d2 - d1 + diff) / 86400000;
+ 
+            return days;
+        }
+ 
+        function daysLeft() {
+            var year = +prompt('enter year (format: YYYY)');
+            var month = prompt('enter month (format: M)') - 1; // Месяц надо уменьшать на единицу
+            var day = +prompt('enter day');
+ 
+            var today = new Date();
+            var nextDate = month > today.getMonth() || (month === today.getMonth() && day >= today.getDate())
+                ? new Date(today.getFullYear(), month, day)
+                : new Date(today.getFullYear() + 1, month, day);
+ 
+            alert(period(today, nextDate));
+        }
+ 
+        function period(d1 = new Date(), d2 = new Date()) {
+            var e = [diffDays(d1, d2), "den", "dnya", "dnei"],
+                value = e[0],
+                rest = value % 100,
+                str;
+ 
+            if (!value) return "Happy Bday!";
+            else if (value === 1) return "Zavtra u vas prazdnik!";
+ 
+            if (rest < 20)
+                switch (rest) {
+                    case 1: str = e[1]; break;
+                    case 2:
+                    case 3:
+                    case 4: str = e[2]; break;
+                    default: str = e[3]; break;
+                }
+            else
+                switch (rest % 10) {
+                    case 1: str = e[1]; break;
+                    case 2:
+                    case 3:
+                    case 4: str = e[2]; break;
+                    default: str = e[3]; break;
+                }
+            return "do vashego dnya rozjdeniya ostalos " + value + " " + str;
+        }
+    </script>
+</body>
+</html>
