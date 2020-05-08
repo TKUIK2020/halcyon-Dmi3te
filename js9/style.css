@@ -1,0 +1,79 @@
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2
+}
+.text {
+    letter-spacing: 1px;
+    margin: 0 auto;
+    font-family: 'Lexend Giga';
+    color: #f2f2f2;
+}
+#page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: url(bg.png) no-repeat;
+    min-width: 155vh;
+    height: 500px;
+    background-position: center;
+    background-size: 100%;
+    margin-left: -2px;
+}
+
+#page img {
+    padding-bottom: 15px;
+}
+
+#page p {
+    font-size: 18px;
+    padding-bottom: 30px;
+}
+#send {
+    display: inline-flex;
+    justify-content: center;
+    width: 100%;
+    height: 60px;
+}
+#send input {
+    width: 300px;
+    background-color: transparent;
+    border: 2px solid rgba(212, 212, 212, 0.897);
+    border-radius: 1px;
+    font-size: 150%;
+    text-align: center;
+}
+#send button {
+    border: none;
+    border-radius: 1px;
+    margin-left: 5px;
+    width: 100px;
+    height: 100%;
+    background-color: rgb(60, 200, 179);
+    outline: none;
+}
+#send button p {
+    padding-top: 25%;
+    font-size: 15px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+} 
+#send button p:hover{
+    opacity: 74%;
+}
+#send input[type=submit]{
+    background: rgba(13, 232, 202, 0.8)
+}
+#send input[type=text] { 
+    background-color: rgba(255, 255, 255, 0.1);
+    border: solid 1px #fff; padding: 20px;
+    color: #fff; }
+#send input[type=submit] {
+    background: rgba(13, 232, 202, 0.8); }
+#send input[type=submit]:hover {
+    background: rgba(61, 201, 179, 1);
+    border: solid 1px rgba(61, 201, 179, 1); 
+    color: #fff; } 
